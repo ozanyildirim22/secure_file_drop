@@ -1,0 +1,63 @@
+=== TERMINAL OUTPUT: demo.ps1 (Main functionality & Handshake) ===
+Created CA in pki/ca
+Issued server certificate for server in pki/server
+Issued client certificate for alice in pki/alice
+Issued client certificate for bob in pki/bob
+Issued client certificate for mallory in pki/mallory
+Registered/announced certificate for user 'alice' to the server.
+Registered/announced certificate for user 'bob' to the server.
+Registered/announced certificate for user 'mallory' to the server.
+{
+  "file_id": "2f47da6ccb4d41739daa835d0507f1df",
+  "ok": true
+}
+File id: 2f47da6ccb4d41739daa835d0507f1df
+--- Mallory unauthorized download attempt (must fail) ---
+DOWNLOAD failed: not authorized for this file
+--- Bob list ---
+{
+  "download_completed": false,
+  "expired": false,
+  "expires_at": 1780249425,
+  "file_id": "2f47da6ccb4d41739daa835d0507f1df",
+  "recipient_id": "bob",
+  "revoked": false,
+  "sender_id": "alice",
+  "status": "pending",
+  "upload_timestamp": 1780245825
+}
+--- Bob download ---
+Downloaded and verified file to: downloads/bob_secret.txt
+ACK: {
+  "ok": true,
+  "status": "downloaded"
+}
+Encrypted note decrypted: Read this privately, Bob.
+
+=== TERMINAL OUTPUT: test_readme.ps1 (Bonus features) ===
+=== 9.9 One-time download test ===
+Uploaded file for one-time download test, ID: 303175030e3a41d7ba416ecc68b8f2a8
+Bob downloading for the first time (should succeed)...
+Downloaded and verified file to: downloads/bob_first.txt
+ACK: {
+  "ok": true,
+  "status": "downloaded"
+}
+Bob downloading for the second time (should fail)...
+DOWNLOAD failed: file already downloaded once
+
+=== 9.10 Expiration test ===
+Uploaded file with 1 second expiration, ID: 8d0444fd7fd2498aa0c7c4b825728e3a
+Waiting 2 seconds...
+Bob downloading expired file (should fail)...
+DOWNLOAD failed: file expired
+
+=== 9.11 Revocation test ===
+Uploaded file for revocation, ID: 8e819addf40e49c69a715839e0bf340f
+Alice revokes the file...
+{
+  "ok": true,
+  "status": "revoked"
+}
+Bob downloading revoked file (should fail)...
+DOWNLOAD failed: file revoked
