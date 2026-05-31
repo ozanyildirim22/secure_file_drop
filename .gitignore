@@ -1,0 +1,10 @@
+pki/
+storage/
+downloads/
+test_files/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.venv/
+venv/
