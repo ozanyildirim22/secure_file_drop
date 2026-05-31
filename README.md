@@ -477,7 +477,7 @@ This project was developed collaboratively by our group. The concrete contributi
 
 ## 13. Packaging
 
-Submit a single zip file containing this folder. Suggested filename:
+
 
 ```text
 OzanYildirim_AzraCetinturk_HelinZeybek_SecureFileDrop.zip
