@@ -1,6 +1,6 @@
 # Secure Zero-Trust File Drop System
 
-This project implements a secure file drop system for CSE4057 Spring 2026. It uses raw TCP sockets and a custom application-layer protocol. It does **not** use SSL/TLS, `ssl`, OpenSSL secure socket wrappers, or any ready-made secure channel framework.
+This project implements a secure file drop system for CSE4057 Spring 2026. It uses raw TCP sockets and a custom application-layer protocol. 
 
 Implemented bonus features:
 
